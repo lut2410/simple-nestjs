@@ -16,7 +16,7 @@ export class DogsService {
     return this.dogsRepository.find();
   }
 
-  findOne(id: string): Promise<Dog> {
+  findOne(id: number): Promise<Dog> {
     return this.dogsRepository.findOne(id);
   }
 
@@ -28,12 +28,12 @@ export class DogsService {
     console.log('add')
       let entity: Dog = {id: 0, name:data.name, age: data.age, breed: data.breed};
       let newentity: Dog = {id: 0, name:data.name, age: data.age, breed: ''};
-      return new Promise(function(myResolve, myReject) {
-        console.log(newentity);
-        return newentity;
-      });
+      // return new Promise(function(myResolve, myReject) {
+      //   console.log(newentity);
+      //   return newentity;
+      // });
     
-    // return this.dogsRepository.save(data);
+    return this.dogsRepository.save(data);
   }
 
   async update(id: number, data: any): Promise<Dog> {

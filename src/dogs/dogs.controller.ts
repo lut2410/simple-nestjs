@@ -21,7 +21,8 @@ export class DogsController {
 
     @Get(':id')
     findOne(@Param('id') id: string) {
-        return `we get the dog with the id ${id}`;
+        let id_int = Number(id);
+        return this.dogService.findOne(id_int);
     }
 
     @Put(':id')
