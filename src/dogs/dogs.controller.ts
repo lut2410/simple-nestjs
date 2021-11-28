@@ -1,4 +1,5 @@
 import { Controller, Get, Post, Body, Param, Delete, Put } from '@nestjs/common';
+import { Dog } from 'src/entity/dogs.entity';
 import { DogsService } from './dogs.service';
 import { DogDto } from './interfaces/dog.dto';
 
@@ -14,9 +15,8 @@ export class DogsController {
     }
 
     @Post()
-    create(@Body() dogDto: DogDto) {
+    create(@Body() dogDto: DogDto): Promise<Dog> {
         return this.dogService.add(dogDto);
-        return dogDto;
     }
 
     @Get(':id')

@@ -7,7 +7,7 @@ import { DogDto } from './interfaces/dog.dto';
 @Injectable()
 export class DogsService {
   constructor(
-      private connection: Connection,//can use transaction
+      // private connection: Connection,//can use transaction
     @InjectRepository(Dog)
     private dogsRepository: Repository<Dog>,
   ) {}
@@ -24,9 +24,16 @@ export class DogsService {
     return this.dogsRepository.findOne(id);
   }
 
-  add(data: DogDto): Promise<Dog> {
+  add(data: DogDto): Promise<Dog>  {
+    console.log('add')
       let entity: Dog = {id: 0, name:data.name, age: data.age, breed: data.breed};
-    return this.dogsRepository.save(data);
+      let newentity: Dog = {id: 0, name:data.name, age: data.age, breed: ''};
+      return new Promise(function(myResolve, myReject) {
+        console.log(newentity);
+        return newentity;
+      });
+    
+    // return this.dogsRepository.save(data);
   }
 
   async update(id: number, data: any): Promise<Dog> {
