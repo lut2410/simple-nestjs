@@ -1,4 +1,4 @@
-import { Dog } from '../entity/dogs.entity';
+import { Dog } from '../entity/dog.entity';
 import { EntityRepository, Repository } from 'typeorm';
 import { DogDto } from './interfaces/dog.dto';
 

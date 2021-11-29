@@ -1,0 +1,35 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Dog {
+  """Id ne"""
+  id: Int
+  name: String
+  age: Float
+  breed: String
+}
+
+type Query {
+  dogs: [Dog!]!
+  dog(id: Int!): Dog!
+}
+
+type Mutation {
+  createDog(createDogInput: CreateDogInput!): Dog!
+  updateDog(updateDogInput: UpdateDogInput!): Dog!
+  removeDog(id: Int!): Dog!
+}
+
+input CreateDogInput {
+  name: String!
+  age: Float!
+  breed: String!
+}
+
+input UpdateDogInput {
+  name: String!
+  age: Float!
+  breed: String!
+  id: Float!
+}

@@ -1,5 +1,5 @@
 import { Controller, Get, Post, Body, Param, Delete, Put } from '@nestjs/common';
-import { Dog } from 'src/entity/dogs.entity';
+import { Dog } from '../entity/dog.entity';
 import { DogsService } from './dogs.service';
 import { DogDto } from './interfaces/dog.dto';
 
