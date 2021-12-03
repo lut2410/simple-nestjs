@@ -5,7 +5,7 @@ on:
     branches: [ develop ]
   pull_request:
     branches: [ develop ]
-
+    types: [opened, synchronize, reopened]
 jobs:
 
   build:
@@ -48,3 +48,18 @@ jobs:
 
     - name: Image digest
       run: echo ${{ steps.docker_build.outputs.digest }}
+
+  sonarqube:
+    runs-on: ubuntu-latest
+    steps:
+      - name: SonarQube Scan demo 
+        run: echo SonarQube Scan demo
+    # - uses: actions/checkout@v2
+    #   with:
+    #     # Disabling shallow clone is recommended for improving relevancy of reporting
+    #     fetch-depth: 0
+    # - name: SonarQube Scan
+    #   uses: sonarsource/sonarqube-scan-action@master
+    #   env:
+    #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+    #     SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
