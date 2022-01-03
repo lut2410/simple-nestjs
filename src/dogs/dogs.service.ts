@@ -7,10 +7,10 @@ import { DogDto } from './interfaces/dog.dto';
 @Injectable()
 export class DogsService {
   constructor(
-      // private connection: Connection,//can use transaction
+    // private connection: Connection,//can use transaction
     @InjectRepository(Dog)
     private dogsRepository: Repository<Dog>,
-  ) {}
+  ) { }
 
   findAll(): Promise<Dog[]> {
     return this.dogsRepository.find();
@@ -24,15 +24,15 @@ export class DogsService {
     return this.dogsRepository.findOne(id);
   }
 
-  add(data: DogDto): Promise<Dog>  {
+  add(data: DogDto): Promise<Dog> {
     console.log('add')
-      let entity: Dog = {id: 0, name:data.name, age: data.age, breed: data.breed};
-      let newentity: Dog = {id: 0, name:data.name, age: data.age, breed: ''};
-      // return new Promise(function(myResolve, myReject) {
-      //   console.log(newentity);
-      //   return newentity;
-      // });
-    
+    let entity: Dog = { id: 0, name: data.name, age: data.age, breed: data.breed, breed2: data.breed };
+    let newentity: Dog = { id: 0, name: data.name, age: data.age, breed: '', breed2: '' };
+    // return new Promise(function(myResolve, myReject) {
+    //   console.log(newentity);
+    //   return newentity;
+    // });
+
     return this.dogsRepository.save(data);
   }
 
