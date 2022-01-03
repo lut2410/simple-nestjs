@@ -52,7 +52,7 @@ jobs:
   sonarqube:
     runs-on: ubuntu-latest
     steps:
-      - name: SonarQube Scan demo 
+      - name: SonarQube Scan
         run: echo SonarQube Scan demo
     # - uses: actions/checkout@v2
     #   with:

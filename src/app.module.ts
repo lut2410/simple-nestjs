@@ -8,6 +8,8 @@ import { DogModule } from './dog/dog.module';
 import { GraphQLFactory, GraphQLModule } from '@nestjs/graphql';
 import { join } from 'path';
 import { LoggingPlugin } from './Middleware/logging';
+import { UserResolver } from './user/user.resolver';
+import { UserService } from './user/user.service';
 
 @Module({
   imports: [
@@ -28,7 +30,7 @@ import { LoggingPlugin } from './Middleware/logging';
     DogModule,
   ],
   controllers: [AppController],
-  providers: [AppService, LoggingPlugin],
+  providers: [AppService, LoggingPlugin, UserResolver, UserService],
 })
 export class AppModule { 
    constructor(private connection: Connection) {}
